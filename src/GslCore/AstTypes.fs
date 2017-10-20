@@ -98,6 +98,8 @@ type Node<'T when 'T: equality> = {x: 'T; pos: SourcePosition option}
         match other with
         | :? Node<'T> as o -> this.x = o.x
         | _ -> false
+        
+    override this.GetHashCode() = this.x.GetHashCode()
 
 /// Generic helper functions for wrapping node payloads.
 
